@@ -9,11 +9,11 @@ This project analyzes e-commerce sales data to uncover profitability drivers, cu
 
 | Metric | Value | Trend |
 |--------|-------|-------|
-| Revenue | $105M | 6% YoY ↑ [file:1] |
-| Customers | 9191 | 0% change [file:1] |
-| Avg Price | $17.6 | 17% YoY ↑ [file:1] |
+| Revenue | $105M | 6% YoY ↑  |
+| Customers | 9191 | 0% change|
+| Avg Price | $17.6 | 17% YoY ↑|
 
-[image:1]
+[]
 
 
 # Tech Stack
