@@ -13,7 +13,7 @@ This project analyzes e-commerce sales data to uncover profitability drivers, cu
 | Customers | 9191 | 0% change|
 | Avg Price | $17.6 | 17% YoY ↑|
 
-[]
+(screenshot/dashboard_preview.png)
 
 
 # Tech Stack
