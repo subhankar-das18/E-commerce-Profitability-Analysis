@@ -1,68 +1,100 @@
-# E-commerce-Profitability-Analysis
-E-Commerce Profitability Analysis Dashboard
-Project Overview
-This project analyzes e-commerce sales data to uncover profitability drivers, customer segments, and optimization opportunities. Using real-world datasets, I built an interactive Power BI dashboard that visualizes key metrics like profit margins, product performance, and regional trends, enabling data-driven decisions for revenue growth.
-## Key Insights & Results
-- **Top Metrics**: Revenue at $105M (6% YoY growth), 9191 customers (0% change), average price $17.6.
-- **Trends**: Line charts reveal steady revenue/quantity growth; top countries include Brazil (CT), Germany (DE), and Lithuania (LT).
-- **Visuals**: Revenue by geography (world map), top 5 by quantity sold (bar chart).
+# E-commerce Sales Dashboard (PostgreSQL + Power BI)
 
-| Metric | Value | Trend |
-|--------|-------|-------|
-| Revenue | $105M | 6% YoY ↑  |
-| Customers | 9191 | 0% change|
-| Avg Price | $17.6 | 17% YoY ↑|
+## Overview
+This project analyzes a small e-commerce dataset using PostgreSQL for data storage and SQL practice, then visualizes the results in Power BI with DAX measures and an interactive sales dashboard. The goal was to answer core business questions around revenue, customers, order volume, geography, product category performance, and order status trends.
 
-![E-commerce Dashboard](screenshot/dashboard_preview.png)
+## Business Problem
+An online store needs a simple executive dashboard to monitor:
+- Revenue performance over time
+- Which countries generate the most revenue
+- Which product categories perform best
+- Total customers, total orders, and average order value
+- The breakdown of completed, cancelled, and pending orders
 
+## Tools Used
+- PostgreSQL
+- SQL
+- Power BI Desktop
+- DAX
 
+## Dataset Structure
+The dashboard was built from four related tables:
+- `Customers` — customer details and country
+- `Orders` — order date, customer, and order status
+- `Order_Items` — quantity and unit price for each order line
+- `Products` — product name and category
 
-# Tech Stack
-SQL: Data extraction, joins (INNER, LEFT), CTEs, and aggregations from PostgreSQL.
+## Data Model
+Relationships used in Power BI:
+- `Customers[customer_id]` 1-to-many `Orders[customer_id]`
+- `Orders[order_id]` 1-to-many `Order_Items[order_id]`
+- `Products[product_id]` 1-to-many `Order_Items[product_id]`
 
-Power BI: Data modeling, DAX calculations, and responsive visualizations.
+This model supports slicing revenue by customer, country, product, and order status.
 
-Excel: Initial data exploration and pivot tables.
+## Key DAX Measures
+```DAX
+Total Revenue =
+SUMX (
+    'Order_Items',
+    'Order_Items'[quantity] * 'Order_Items'[unit_price]
+)
 
-Git/GitHub: Version control for queries and PBIX files.
+Total Orders =
+DISTINCTCOUNT ( 'Orders'[order_id] )
 
-Dataset
-Sourced from a simulated e-commerce dataset (orders, customers, products; ~50K rows). Key tables: sales, products, customers.
+Total Customers =
+DISTINCTCOUNT ( 'Customers'[customer_id] )
 
-How to Run
-Clone the repo: git clone https://github.com/yourusername/ecommerce-profitability-analysis.git
+Average Order Value =
+DIVIDE ( [Total Revenue], [Total Orders] )
 
-Load ecommerce_sales.sql in PostgreSQL or your DB tool.
+Completed Revenue =
+CALCULATE (
+    [Total Revenue],
+    'Orders'[order_status] = "Completed"
+)
 
-Import data into Power BI via data/ folder.
+Completed Orders =
+CALCULATE (
+    [Total Orders],
+    'Orders'[order_status] = "Completed"
+)
+```
 
-Open Ecommerce_Profitability_Dashboard.pbix and refresh.
+## Dashboard Features
+The dashboard includes:
+- KPI cards for Total Customers, Total Revenue, Total Orders, and Average Order Value
+- A line chart showing monthly revenue trend
+- A bar chart for revenue by country
+- A bar chart for revenue by product category
+- A pie chart for order status distribution
 
-Explore the dashboard—filter by region or product for instant insights!
+## Key Insights
+- The dataset currently shows **3 unique customers**, **5 total orders**, and **14,600 total revenue**.
+- The **Average Order Value is 2,920**, which suggests relatively high-value purchases per order.
+- **India is the leading market**, contributing the vast majority of total revenue.
+- **Fashion is the top-performing product category**, ahead of Electronics and Home.
+- Most orders are **Completed**, while Cancelled and Pending orders form a much smaller share.
 
-Key Insights & Results
-Top Finding: Electronics category drove 45% of profits despite high returns; recommend bundling with accessories.
+## Business Interpretation
+This dashboard suggests that the store currently depends heavily on one geography and one main category for revenue. That concentration is useful for short-term focus, but it also highlights opportunities to diversify country reach and product performance.
 
-ROI Impact: Optimized pricing could boost margins by 12% in low-profit regions (e.g., Northeast India).
+## What I Learned
+Through this project, I practiced:
+- Writing SQL queries for joins, aggregation, filtering, and business analysis
+- Building a relational data model in Power BI
+- Creating reusable DAX measures for KPIs
+- Designing a beginner-friendly business dashboard
+- Turning charts into business insights for storytelling
 
-Visualization Example:
+## Future Improvements
+Possible next steps for this project:
+- Add slicers for date, country, and order status
+- Create a second dashboard page for customer-level analysis
+- Add top products and repeat customer metrics
+- Expand the dataset to include profit, discounts, and returns
 
-Metric	Value	Insight
-Total Profit	$1.2M	Strong Q4 performance
-Avg. Margin	28%	Apparel lags at 15%
-Top Region	West (35%)	Expand marketing here
-(Add your actual screenshot here)
-
-Learning Outcomes
-Mastered complex SQL joins and DAX for profitability modeling.
-
-Applied data storytelling to translate insights into business recommendations.
-
-Built ATS-optimized portfolio project for data analyst roles.
-
-Future Enhancements
-Integrate ML for demand forecasting (Python/Tableau).
-
-Add real-time data via APIs.
-
-Deploy on Power BI Service for sharing.
+## Author
+**Subhankar Das**  
+Aspiring Data Analyst focused on SQL, Power BI, Excel, and portfolio-driven learning.
