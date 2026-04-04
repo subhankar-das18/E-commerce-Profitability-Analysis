@@ -16,6 +16,7 @@ An online store needs a simple executive dashboard to monitor:
 - SQL
 - Power BI Desktop
 - DAX
+- juliius ai
 
 ## Dataset Structure
 The dashboard was built from four related tables:
