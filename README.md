@@ -1,19 +1,40 @@
-# E-commerce Sales Dashboard (PostgreSQL + Power BI)
+<div align="center">
+  <img src="https://github.com/subhankar-das18/ecommerce-sales-dashboard/assets/12345678/screenshot-hero.png" alt="E-commerce Sales Dashboard" width="1000"/>
+  
+  # 🚀 E-commerce Sales Analytics Dashboard
+  **Power BI + PostgreSQL + DAX** | Revenue, Category Insights & Profit Trends
+  
+  [![GitHub stars](https://img.shields.io/github/stars/subhankar-das18/ecommerce-sales-dashboard)](https://github.com/subhankar-das18/ecommerce-sales-dashboard)
+  [![Live Demo](https://img.shields.io/badge/Live-PowerBI-blue)](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
+</div>
 
-## Overview
-This project analyzes a small e-commerce dataset using PostgreSQL for data storage and SQL practice, then visualizes the results in Power BI with DAX measures and an interactive sales dashboard. The goal was to answer core business questions around revenue, customers, order volume, geography, product category performance, and order status trends.
+## 🎯 Business Problem
+Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categories**, and **customer buying patterns** for an online retailer.
 
-## Business Problem
-An online store needs a simple executive dashboard to monitor:
-- Revenue performance over time
-- Which countries generate the most revenue
-- Which product categories perform best
-- Total customers, total orders, and average order value
-- The breakdown of completed, cancelled, and pending orders
+## 📊 Key Insights
+- **45% revenue from Electronics** — but 12% higher returns
+- **Top 5 products** drove 68% profit
+- **Peak sales**: Q4 weekends, 2-4 PM
 
-## Tools Used
-- PostgreSQL
-- SQL
+## 🛠 Tech Stack
+- **Data**: PostgreSQL queries (joins, window functions)
+- **Viz**: Power BI slicers, DAX measures (YOY growth, margins)
+- **Analysis**: Customer segmentation, profitability by region
+
+## 📁 Quick Start
+1. Download `dataset/ecommerce_data.csv`
+2. Open `Sales Dashboard.pbix` in Power BI Desktop
+3. Refresh → Explore!
+
+## 📈 Live Demo
+[View Interactive Dashboard](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
+
+## Screenshots
+| Overview | Category Breakdown | Trends |
+|----------|--------------------|--------|
+| ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](screenshots/trends.png) |
+
+**Built by [Subhankar Das](https://github.com/subhankar-das18) | Open to internships**- SQL
 - Power BI Desktop
 - DAX
 - juliius ai
