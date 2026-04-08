@@ -32,9 +32,9 @@ Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categorie
 ## Screenshots
 | Overview | Category Breakdown | Trends |
 |----------|--------------------|--------|
-| ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](screenshots/trends.png) |
+| ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/monthly_sales_trend.png?raw=true) |
 
-## Built by [Subhankar Das](https://github.com/subhankar-das18) | 
+**Built by [Subhankar Das](https://github.com/subhankar-das18) |** 
 - SQL
 - Power BI Desktop
 - DAX
