@@ -34,7 +34,8 @@ Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categorie
 |----------|--------------------|--------|
 | ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](screenshots/trends.png) |
 
-**Built by [Subhankar Das](https://github.com/subhankar-das18) | Open to internships**- SQL
+**Built by [Subhankar Das](https://github.com/subhankar-das18) | **
+- SQL
 - Power BI Desktop
 - DAX
 - juliius ai
