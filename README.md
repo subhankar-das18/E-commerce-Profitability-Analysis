@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="[https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/screenshot/dashboard_preview.png](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true)" alt="E-commerce Sales Dashboard" width="1000"/>
+  <img src="(https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true)" alt="E-commerce Sales Dashboard" width="1000"/>
   
   # 🚀 E-commerce Sales Analytics Dashboard
   **Power BI + PostgreSQL + DAX** | Revenue, Category Insights & Profit Trends
@@ -34,7 +34,7 @@ Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categorie
 |----------|--------------------|--------|
 | ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](screenshots/trends.png) |
 
-** Built by [Subhankar Das](https://github.com/subhankar-das18) | 
+** Built by [Subhankar Das](https://github.com/subhankar-das18) | **
 - SQL
 - Power BI Desktop
 - DAX
