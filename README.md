@@ -1,6 +1,6 @@
 <div align="center"> 
   <img src="https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true" alt="E-commerce Sales Dashboard" width="1000"/>
-  
+   
   # 🚀 E-commerce Sales Analytics Dashboard
   **Power BI + PostgreSQL + DAX** | Revenue, Category Insights & Profit Trends
   
