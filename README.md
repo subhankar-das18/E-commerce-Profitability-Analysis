@@ -4,7 +4,7 @@
   # 🚀 E-commerce Sales Analytics Dashboard
   **Power BI + PostgreSQL + DAX** | Revenue, Category Insights & Profit Trends
 
-  [![GitHub stars](https://img.shields.io/github/stars/subhankar-das18/YOUR-EXACT-REPO-NAME?style=social)](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis)
+  [![GitHub stars](https://img.shields.io/github/stars/subhankar-das18/YOUR-EXACT-REPO-NAME?style=social)](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis.git)
   [![Live Demo](https://img.shields.io/badge/Live-PowerBI-blue)](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
 </div>
 
