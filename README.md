@@ -6,7 +6,7 @@
 
   [![GitHub Repo stars](https://img.shields.io/github/stars/subhankar-das18/Loan-Default-Risk-Analysis?style=social)](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis)
   [![Live Demo](https://img.shields.io/badge/Live-PowerBI-blue)](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
-</div>
+</div>   
 
 ## 🎯 Business Problem
 Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categories**, and **customer buying patterns** for an online retailer.
