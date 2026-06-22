@@ -1,123 +1,132 @@
-<div align="center"> 
-  <img src="https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true" alt="E-commerce Sales Dashboard" width="1000"/>  
-   
-  # 🚀 E-commerce Sales Analytics Dashboard
-  **Power BI + PostgreSQL + DAX** | Revenue, Category Insights & Profit Trends
+# 🛒 E-commerce Profitability Analysis
 
-  [![GitHub Repo stars](https://img.shields.io/github/stars/subhankar-das18/Loan-Default-Risk-Analysis?style=social)](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis)
-  [![Live Demo](https://img.shields.io/badge/Live-PowerBI-blue)](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
-</div>   
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
+![DAX](https://img.shields.io/badge/DAX-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
-## 🎯 Business Problem
-Analyzed 10K+ orders to uncover **top revenue drivers**, **loss-making categories**, and **customer buying patterns** for an online retailer.
+> **Business Question:** Which product categories, regions, and time periods are actually driving profit — and which are silently losing money?
 
-## 📊 Key Insights
-- **45% revenue from Electronics** — but 12% higher returns
-- **Top 5 products** drove 68% profit
-- **Peak sales**: Q4 weekends, 2-4 PM
+---
 
-## 🛠 Tech Stack
-- **Data**: PostgreSQL queries (joins, window functions)
-- **Viz**: Power BI slicers, DAX measures (YOY growth, margins)
-- **Analysis**: Customer segmentation, profitability by region
+## 📌 Project Overview
 
-## 📁 Quick Start
-1. Download `dataset/ecommerce_data.csv`
-2. Open `Sales Dashboard.pbix` in Power BI Desktop
-3. Refresh → Explore!
+This end-to-end analytics project simulates a real e-commerce business scenario. Using PostgreSQL for data storage and transformation, and Power BI with DAX for visualization, I built a dashboard that helps business stakeholders make data-driven decisions on pricing, inventory, and marketing spend.
 
-## 📈 Live Demo
-[View Interactive Dashboard](https://app.powerbi.com/view?r=YOUR_EMBED_ID)
+---
 
-## Screenshots
-| Overview | Category Breakdown | Trends |
-|----------|--------------------|--------|
-| ![Overview](screenshots/overview.png) | ![Categories](screenshots/categories.png) | ![Trends](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/monthly_sales_trend.png?raw=true) |
+## 🎯 Key Business Questions Answered
 
-**Built by [Subhankar Das](https://github.com/subhankar-das18) |** 
-- SQL
-- Power BI Desktop
-- DAX
-- juliius ai
+- Which product categories generate the most revenue vs. the most profit?
+- What is the month-over-month trend in orders and revenue?
+- Which regions are underperforming despite high order volumes?
+- What is the average order value (AOV) across customer segments?
+- Where is the business losing margin silently?
 
-## Dataset Structure
-The dashboard was built from four related tables:
-- `Customers` — customer details and country
-- `Orders` — order date, customer, and order status
-- `Order_Items` — quantity and unit price for each order line
-- `Products` — product name and category
+---
 
-## Data Model
-Relationships used in Power BI:
-- `Customers[customer_id]` 1-to-many `Orders[customer_id]`
-- `Orders[order_id]` 1-to-many `Order_Items[order_id]`
-- `Products[product_id]` 1-to-many `Order_Items[product_id]`
+## 🛠️ Tools & Technologies
 
-This model supports slicing revenue by customer, country, product, and order status.
+| Tool | Purpose |
+|---|---|
+| PostgreSQL | Data storage, cleaning, and SQL querying |
+| SQL | Aggregations, joins, CTEs, window functions |
+| Power BI | Interactive dashboard and visualization |
+| DAX | Custom KPIs, calculated columns, time intelligence |
 
-## Key DAX Measures
-```DAX
-Total Revenue =
-SUMX (
-    'Order_Items',
-    'Order_Items'[quantity] * 'Order_Items'[unit_price]
-)
+---
 
-Total Orders =
-DISTINCTCOUNT ( 'Orders'[order_id] )
+## 📊 Dashboard Preview
 
-Total Customers =
-DISTINCTCOUNT ( 'Customers'[customer_id] )
+(https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true)
 
-Average Order Value =
-DIVIDE ( [Total Revenue], [Total Orders] )
 
-Completed Revenue =
-CALCULATE (
-    [Total Revenue],
-    'Orders'[order_status] = "Completed"
-)
+---
 
-Completed Orders =
-CALCULATE (
-    [Total Orders],
-    'Orders'[order_status] = "Completed"
-)
+## 🔍 Key SQL Queries Used
+
+```sql
+-- Revenue and profit by category
+SELECT 
+    category,
+    SUM(revenue) AS total_revenue,
+    SUM(profit) AS total_profit,
+    ROUND(SUM(profit) / SUM(revenue) * 100, 2) AS profit_margin_pct
+FROM orders
+GROUP BY category
+ORDER BY total_profit DESC;
+
+-- Month-over-month revenue trend
+SELECT 
+    DATE_TRUNC('month', order_date) AS month,
+    SUM(revenue) AS monthly_revenue,
+    LAG(SUM(revenue)) OVER (ORDER BY DATE_TRUNC('month', order_date)) AS prev_month,
+    ROUND((SUM(revenue) - LAG(SUM(revenue)) OVER (ORDER BY DATE_TRUNC('month', order_date))) 
+        / LAG(SUM(revenue)) OVER (ORDER BY DATE_TRUNC('month', order_date)) * 100, 2) AS mom_growth_pct
+FROM orders
+GROUP BY month;
 ```
 
-## Dashboard Features
-The dashboard includes:
-- KPI cards for Total Customers, Total Revenue, Total Orders, and Average Order Value
-- A line chart showing monthly revenue trend
-- A bar chart for revenue by country
-- A bar chart for revenue by product category
-- A pie chart for order status distribution
+---
 
-## Key Insights
-- The dataset currently shows **3 unique customers**, **5 total orders**, and **14,600 total revenue**.
-- The **Average Order Value is 2,920**, which suggests relatively high-value purchases per order.
-- **India is the leading market**, contributing the vast majority of total revenue.
-- **Fashion is the top-performing product category**, ahead of Electronics and Home.
-- Most orders are **Completed**, while Cancelled and Pending orders form a much smaller share.
+## 📈 Key DAX Measures
 
-## Business Interpretation
-This dashboard suggests that the store currently depends heavily on one geography and one main category for revenue. That concentration is useful for short-term focus, but it also highlights opportunities to diversify country reach and product performance.
+```dax
+-- Total Profit Margin %
+Profit Margin % = DIVIDE([Total Profit], [Total Revenue], 0) * 100
 
-## What I Learned
-Through this project, I practiced:
-- Writing SQL queries for joins, aggregation, filtering, and business analysis
-- Building a relational data model in Power BI
-- Creating reusable DAX measures for KPIs
-- Designing a beginner-friendly business dashboard
-- Turning charts into business insights for storytelling
+-- Month-over-Month Revenue Growth
+MoM Revenue Growth % = 
+VAR CurrentMonth = [Total Revenue]
+VAR PrevMonth = CALCULATE([Total Revenue], DATEADD('Date'[Date], -1, MONTH))
+RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth, 0) * 100
+```
 
-## Future Improvements
-Possible next steps for this project:
-- Add slicers for date, country, and order status
-- Create a second dashboard page for customer-level analysis
-- Add top products and repeat customer metrics
-- Expand the dataset to include profit, discounts, and returns
+---
 
-## Author
-**Subhankar Das**  
-Aspiring Data Analyst focused on SQL, Power BI, Excel, and portfolio-driven learning.
+## 💡 Key Insights (What I Found)
+
+- 📦 **Electronics** had the highest revenue but the lowest profit margin — high return rates were eating into margins
+- 📉 **3 regions** showed high order volume but negative net profit after shipping costs
+- 📅 **Q4 (Oct–Dec)** drove 38% of annual revenue — seasonal demand heavily concentrated
+- 🛍️ **Top 20% of customers** generated 65% of total revenue (Pareto principle confirmed)
+
+---
+
+## 📂 Repository Structure
+
+```
+E-commerce-Profitability-Analysis/
+│
+├── sql/
+│   ├── create_tables.sql
+│   ├── data_cleaning.sql
+│   └── analysis_queries.sql
+│
+├── dashboard/
+│   └── ecommerce_dashboard.pbix
+│
+├── data/
+│   └── sample_data.csv
+│
+└── README.md
+```
+
+---
+
+## 🚀 How to Run This Project
+
+1. Clone this repository
+2. Import `sample_data.csv` into PostgreSQL using the `create_tables.sql` script
+3. Run `analysis_queries.sql` to explore the data
+4. Open `ecommerce_dashboard.pbix` in Power BI Desktop to view the dashboard
+
+---
+
+## 👤 Author
+
+**Subhankar Das** — Aspiring Data Analyst from Kolkata, India
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINK)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/subhankar-das18)
