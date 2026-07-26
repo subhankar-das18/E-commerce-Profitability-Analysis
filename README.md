@@ -92,7 +92,7 @@ RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth, 0) * 100
 
 ---
 
-## 📂 Repository Structure
+## 📂 Repository Structure 
 
 ```
 E-commerce-Profitability-Analysis/
