@@ -68,7 +68,7 @@ GROUP BY month;
 
 ---
 
-## 📈 Key DAX Measures
+## 📈 Key DAX Measures 
 
 ```dax
 -- Total Profit Margin %
