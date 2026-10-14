@@ -37,7 +37,7 @@ This end-to-end analytics project simulates a real e-commerce business scenario.
 
 ---
 
-## 📊 Dashboard Preview
+## 📊 Dashboard Preview   
 
 ![Dashboard Preview](https://github.com/subhankar-das18/E-commerce-Profitability-Analysis/blob/main/screenshot/dashboard_preview.png?raw=true)
 ---
