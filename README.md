@@ -16,7 +16,7 @@ This end-to-end analytics project simulates a real e-commerce business scenario.
 
 ---
 
-## 🎯 Key Business Questions Answered
+## 🎯 Key Business Questions Answered  
 
 - Which product categories generate the most revenue vs. the most profit?
 - What is the month-over-month trend in orders and revenue?
