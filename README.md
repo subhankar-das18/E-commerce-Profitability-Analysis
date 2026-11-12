@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Overview   
 
 This end-to-end analytics project simulates a real e-commerce business scenario. Using PostgreSQL for data storage and transformation, and Power BI with DAX for visualization, I built a dashboard that helps business stakeholders make data-driven decisions on pricing, inventory, and marketing spend.
 
